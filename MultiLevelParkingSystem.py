@@ -27,10 +27,19 @@ def out_method(t,r,c,f,x):
                     t[i][j][k]='free'
                     return
 
+def check(prompt):
+    while True:
+        try:
+            val=int(input(prompt))
+            return val
+        except:
+            print("Enter correct input")
+
 #__main__
-r=int(input('Enter the maximum number of rows in your parking area : '))
-c=int(input('Enter the maximum number of columns in your parking area : '))
-f=int(input('How many floors do you have for parking? : '))
+r=check('Enter the maximum number of rows in your parking area : ')
+c=check('Enter the maximum number of columns in your parking area : ')
+f=check('How many floors do you have for parking? : ')
+    
 total_capacity=[[[ 'free' for k in range(c)] for j in range(r)] for i in range(f)]
 
 print('\n\tEnter \'in\' to park a new vehicle')
@@ -72,9 +81,9 @@ while process!='close':
             print('Enter the correct input')
     process = input('\n')
 print('The process is terminated successfully')
-print("\tALERT!",end=' ')
 if vnolist!=[]:
+    print("\tALERT!",end=' ')
     print("Below vehicle/s are yet to be unparked")
-    for i in range(len(vnolist)):
-        print(f'\tVehicle({vnolist[i]})')
-
+    #for i in range(len(vnolist)):
+        #print(f'\tVehicle({vnolist[i]})')
+    print_slots(total_capacity)
